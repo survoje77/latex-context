@@ -1,0 +1,322 @@
+\enableregime[utf-8]
+\useencoding[utf-8]
+\mainlanguage[fr] 
+%-----MODULES
+\usemodule[tikz] 
+%----booklet A6------------
+ \setuppapersize[A6]%[A4]
+%%\setuparranging[2*4,doublesided]
+\setuplayout[location=middle,
+%backspace=10mm,
+backspace=10mm,
+% leftmargin=3mm,
+ leftmargin=3mm, 
+%  leftmargindistance=5mm,
+%  rightmargindistance=0mm,
+ rightmargin=0mm,
+%  rightedge=0mm,
+   width=90mm,
+   topspace=5mm,
+   header=5mm, 
+    headerdistance=5mm,
+    footer=0mm,
+   height=fit,
+   bottom=0mm
+]
+\setuppagenumbering[alternative=doublesided]
+%-----------------------------------
+\setupitemize[2]
+\setupframed[backgroundcolor=red]
+\setupframedtexts[width=8cm]
+%\setupbodyfont[handwritten]
+
+\setupcolors[state=start]
+
+%--------COULEURS-----------
+\definecolor[monbleu][r=.0,g=.0,b=.7]
+\definecolor[monrouge][r=.5,g=.0,b=.0]
+\definecolor[monvert][r=.0,g=.3,b=.0]
+\definecolor[darkgreen][g=.5]%exemple tikz
+
+\define[1]\grosbleu
+{{\tfc \color[monbleu]{#1}}}
+\define[1]\grosnoir
+{{\tfc \color[black]{#1}}}
+\define[1]\grosrouge
+{{\tfc \color[monrouge]{#1}}}
+\define[1]\grosvert
+{{\tfc \color[monvert]{#1}}}
+
+\define[1]\tibleu
+{{\bf \color[monbleu]{#1}}}
+\define[1]\tinoir
+{{\bf  \color[black]{#1}}}
+\define[1]\tirouge
+{{\bf \color[monrouge]{#1}}}
+\define[1]\tivert
+{{\bf \color[monvert]{#1}}}
+
+\define[1]\bleu
+{{\tfb \color[monbleu]{#1}}}
+\define[1]\noir
+{{\tfb \color[black]{#1}}}
+\define[1]\rouge
+{{\tfb \color[monrouge]{#1}}}
+\define[1]\vert
+{{\tfb \color[monvert]{#1}}}
+
+\definecolor[bleuLille][r=.1,g=0.47,b=.72]
+
+\definefloat[intermezzo]
+
+\definebodyfont[10pt,11pt,12pt][rm][tfe=Regular at 48pt]
+%-----mes macros
+\define[2]\moncadre
+{ \startframedtext[middle][width=9cm,corner=round,framecolor=#1]
+#2
+\stopframedtext
+}
+
+\define\titre
+{ \definedfont[SansBold at 20pt] \black{Être }\definedfont[SansBold at 28pt]\bleuLille{acteur }\definedfont[SansBold at 20pt]\black{de sa vie} \crlf 
+ \definedfont[Sans at 16pt] \monrouge{Krishnamurti}
+  \blank[3*big] 
+}
+
+\define[2]\police
+{\definedfont[#1]\black{#2}\normal
+}
+%-----------police sans
+\define[2]\sans
+{{\definedfont[Sans at #1]{#2}}}
+
+\define[2]\sansB
+{{\definedfont[SansBold at #1]{#2}}}
+
+\define[2]\sansI
+{{\definedfont[SansItalic at #1]{#2}}}
+
+\define[2]\sansBI
+{{\definedfont[SansBoldItalic at #1]{#2}}}
+%------------police serif
+\define[2]\serif
+{{\definedfont[Serif at #1]{#2}}}
+
+\define[2]\serifB
+{{\definedfont[SerifBold at #1]{#2}}}
+
+\define[2]\serifI
+{{\definedfont[SerifItalic at #1]{#2}}}
+
+\define[2]\serifBI
+{{\definedfont[SerifBoldItalic at #1]{#2}}}
+%----police mono
+\define[2]\mono
+{{\definedfont[Mono at #1]{#2}}}
+
+\define[2]\monoB
+{{\definedfont[MonoBold at #1]{#2}}}
+
+\define[2]\monoI
+{{\definedfont[MonoItalic at #1]{#2}}}
+
+\define[2]\monoBI
+{{\definedfont[MonoBoldItalic at #1]{#2}}}
+
+%----LAYERS------
+ \definelayer
+  [cadre]
+  [x=0mm,y=0mm,width=\textwidth,height=\textheight]
+ \setlayerframed
+   [cadre]
+   [hoffset=0cm, voffset=0cm,height=15.5cm,width=1.5cm,frame=off,
+   background=color,backgroundcolor=bleuLille]
+   {}
+ 
+ \definelayer[rectangle][x=0mm,y=0mm,width=\paperwidth, height=\paperheight]
+ 
+\definelayer[texte] [x=0mm, y=0mm, width=\paperwidth, height=\paperheight]
+
+ \definelayer
+  [pensee]
+  [x=0mm,y=0mm,width=\textwidth,height=\textheight]
+
+%-------bulle pour tikz
+  \definelayer
+  [bulle]
+  [x=0mm,y=0mm,width=\textwidth,height=\textheight]
+ 
+
+\setupbackgrounds[page][background=texte]
+
+
+
+ \setuptextrules[color=red,rulecolor=blue]
+ 
+  \setlayerframed[bulle][hoffset=5cm, voffset=9.5cm,frame=off]
+ {\rotate[rotation=20]{
+ \starttikzpicture
+ \shade[ball color=monrouge,opacity=.6] (0,0) circle (5ex);
+ \shade[ball color=monrouge,opacity=.8] (0.8,0.5) circle (2.5ex);
+ \shade[ball color=monrouge,opacity=.8] (0.7,1.5) circle (1ex);
+ \shade[ball color=bleuLille,opacity=.5] (-0.25,1.5) circle (0.5ex);
+ \shade[ball color=bleuLille,opacity=.8] (0.5,2) circle (0.5ex);
+ \shade[ball color=bleuLille,opacity=.6] (1.8,1.4) circle (1ex);
+ \shade[ball color=monrouge,opacity=.8] (1.2,2.3) circle (2ex);
+ \shade[ball color=bleuLille,opacity=.5] (1.5,2) circle (1.5ex);
+ \shade[ball color=monrouge,opacity=.8] (2.25,2.25) circle (1.5ex);
+ \shade[ball color=bleuLille,opacity=.5] (2.5,2.3) circle (1ex);
+ \shade[ball color=bleuLille,opacity=.8] (2.5,3) circle (0.75ex);
+ \shade[ball color=bleuLille,opacity=.6] (1.75,2.25) circle (1ex);
+ \shade[ball color=bleuLille,opacity=.8] (2.5,1.5) circle (0.5ex);
+ \stoptikzpicture}}
+
+%-----DOCUMENT-----------------------
+  \starttext
+  %\showlayout
+  %----couverture
+ \setupframed[backgroundcolor=blue,framecolor=bleuLille]
+\setupcolors[state=start]
+\setuppagenumbering[state=stop]
+\setupbackgrounds[page][background={cadre,pensee,bulle}]
+%\setupbackgrounds[paper][state=repeat,background={bulle}]
+
+  
+ \setlayerframed
+   [cadre]
+   [hoffset=0cm, voffset=0cm,height=14.9cm,width=1.5cm,frame=off,
+   background=color,backgroundcolor=bleuLille]
+   {}
+     \setlayerframed
+  [pensee]
+  [hoffset=-1.75cm, voffset=13.5cm,frame=off,width=5cm]
+  {\white\rotate[rotation=90]{\definedfont[SansBold at 16pt]  A6} }  
+
+   %-----TITRE------
+\startcolor[bleuLille]
+\startalignment[left]
+\titre 
+\placefigure
+	[left]
+	[fig:K]
+	{none}
+	\framed{\externalfigure[krishnamurti.jpg]
+	[width=.6\textwidth]}
+\stopcolor
+ \stopalignment
+%\-------page 2
+\page
+\setuppagenumber[number=2]
+\setuppagenumbering[state=start]
+
+\startalignment[center]
+\serif{16pt}{La question de l'}\sansB{36pt}{action}
+%\stopalignment
+\serif{14pt}{ doit absolument être au rang de nos}
+%\startalignment[left]
+\police{SansBold at 20pt}{préoccupations majeures}
+\crlf \crlf\crlf
+\stopalignment
+%\page
+\startalignment[center]
+\sansB{12pt}{Confrontés} \sans{12pt}{comme nous le sommes}
+
+\sans{12pt}{à une }\sansB{12pt}{multitude}
+
+\sans{12pt}{de }\sansB{18pt}{problèmes }
+
+ \sans{12pt}{ comme la}  \sans{20pt}{pauvreté}, 
+
+ \sans{12pt}{la} \sans{20pt}{surpopulation}, 
+
+ \sans{12pt}{la} \sans{20pt}{mécanisation}, 
+
+ \sans{12pt}{l'}\sans{20pt}{industrialisation}
+
+ \sans{12pt}{et ce sentiment d'une} \sans{16pt}{détérioration} 
+
+\sans{20pt}{intérieure et extérieure}, \crlf 
+
+\sans{48pt}{que faire ?}
+\stopalignment
+%------page 3
+\page
+\startalignment[left]
+\sans{18pt}{Ce que vous devez}\sansB{20pt}{ faire}
+
+\sans{18pt}{ n'a pas d'}\serifB{20pt}{importance}
+
+\sans{18pt}{mais il est essentiel}
+
+ \sans{20pt}{d'avoir}\sansB{20pt}{ conscience}
+
+\sans{18pt}{de ce que vous êtes}
+
+ \sans{18pt}{en train de} \sansB{20pt}{faire}
+ \stopalignment
+\crlf
+
+Il est très facile de se noyer dans l'\serifB{16pt}{activisme} ou les \serifB{16pt}{réformes sociales}, mais je ne pense pas que cela résolve les nombreux \serifB{16pt}{problèmes} qui nous assaillent. Nous avons besoin d'une\crlf
+{\midaligned{ \serifB{20pt}{réponse de fond}}\crlf\crlf\crlf
+\sans{12pt}{Notre action résulte de notre} \sansB{16pt}{conditionnement}\crlf\crlf
+\serif{16pt}{Pour la plupart d'entre nous},
+
+\serif{16pt}{l'}\serif{20pt}{activité} \serif{16pt}{sous toutes ses formes}
+
+\serif{16pt}{est une} \serif{24pt}{drogue}\crlf\crlf
+%----page4
+\page
+\startalignment[middle]
+\serifI{12pt}{Jamais le cerveau }
+
+\serifI{12pt}{ne goûte un moment de} 
+
+\serifI{20pt}{repos}, 
+
+\serifI{12pt}{jamais il ne peut dire}
+
+\serifI{20pt}{\quotation{j'ai fini}}
+ \stopalignment
+\crlf%\crlf
+ \sans{12pt}{L'esprit n'est qu'une suite de réactions}
+ 
+ \sans{12pt}{et la} \sans{20pt}{révolution}  
+ 
+ \sans{12pt}{établie sur les réactions, } 
+ 
+ \sans{12pt}{sur les idées,}  \sans{12pt}{n'est pas une}  \sans{20pt}{révolution} 
+ 
+  \sans{12pt}{mais tout au plus}  \sans{16pt}{une continuité modifiée}
+\crlf\crlf
+
+\serif{16pt}{Peut-il y avoir une} \serifB{16pt}{action} \serif{16pt}{sans connexion avec le} \serifB{16pt}{passé}\serif{16pt}{, qui ne soit pas plombée par le fardeau de l'}\serifB{16pt}{expérience}\serif{16pt}{, par le }\serifB{16pt}{savoir} \serif{16pt}{ d'hier ?} 
+\crlf\crlf\crlf\crlf
+\startalignment[middle]
+\sans{16pt}{Nos actions ne sont que des}
+\sans{26pt}{réactions}
+ \stopalignment
+ %----page 5
+ \page
+\mono{20pt}{L'esprit peut-il }\crlf
+\monoB{26pt}{se libérer }\crlf
+ \mono{20pt}{de son conditionnement~?}
+ \crlf\crlf
+ \startalignment[middle]
+\monoI{12pt}{La }\monoBI{20pt}{volonté}\crlf \monoI{12pt}{est résistance }%\crlf 
+\monoI{12pt}{et l'}\monoBI{16pt}{action}\crlf
+\monoI{12pt}{ qui en découle }%\crlf
+\monoI{12pt}{engendre }\crlf
+\monoBI{16pt}{désordre} \monoI{12pt}{et }\monoBI{16pt}{souffrance},\crlf
+\monoI{12pt}{ tant intérieurs qu'extérieurs}
+ \stopalignment
+\crlf\crlf
+\serif{20pt}{Tout} \serif{36pt}{conflit}\crlf
+\serif{20pt}{est une perte d'}\serifB{26pt}{énergie}
+\crlf\crlf
+ \startalignment[left]
+\mono{12pt}{Toutes nos} \serifB{20pt}{actions}\crlf \mono{12pt}{sont basées sur la} \serifB{20pt}{pensée}\crlf
+ \mono{12pt}{et sont donc}\crlf
+  \serifB{14pt}{limitées},\crlf
+\serifB{16pt}{fragmentaires},\crlf\serifB{20pt}{incomplètes}
+   \stopalignment
+ \stoptext
