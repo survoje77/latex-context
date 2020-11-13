@@ -1,23 +1,24 @@
 \enableregime[utf-8]
 \useencoding[utf-8]
-\mainlanguage[fr] 
+\mainlanguage[fr]
 %-----MODULES
-\usemodule[tikz] 
+\usemodule[tikz]
 %----booklet A6------------
+% en supprimant le % devant [A4] et devant %%\setuparranging on obtient un livret 
  \setuppapersize[A6]%[A4]
 %%\setuparranging[2*4,doublesided]
 \setuplayout[location=middle,
 %backspace=10mm,
 backspace=10mm,
 % leftmargin=3mm,
- leftmargin=3mm, 
+ leftmargin=3mm,
 %  leftmargindistance=5mm,
 %  rightmargindistance=0mm,
  rightmargin=0mm,
 %  rightedge=0mm,
    width=90mm,
    topspace=5mm,
-   header=5mm, 
+   header=5mm,
     headerdistance=5mm,
     footer=0mm,
    height=fit,
@@ -78,9 +79,9 @@ backspace=10mm,
 }
 
 \define\titre
-{ \definedfont[SansBold at 20pt] \black{Être }\definedfont[SansBold at 28pt]\bleuLille{acteur }\definedfont[SansBold at 20pt]\black{de sa vie} \crlf 
+{ \definedfont[SansBold at 20pt] \black{Être }\definedfont[SansBold at 28pt]\bleuLille{acteur }\definedfont[SansBold at 20pt]\black{de sa vie} \crlf
  \definedfont[Sans at 16pt] \monrouge{Krishnamurti}
-  \blank[3*big] 
+  \blank[3*big]
 }
 
 \define[2]\police
@@ -132,9 +133,9 @@ backspace=10mm,
    [hoffset=0cm, voffset=0cm,height=15.5cm,width=1.5cm,frame=off,
    background=color,backgroundcolor=bleuLille]
    {}
- 
+
  \definelayer[rectangle][x=0mm,y=0mm,width=\paperwidth, height=\paperheight]
- 
+
 \definelayer[texte] [x=0mm, y=0mm, width=\paperwidth, height=\paperheight]
 
  \definelayer
@@ -145,14 +146,14 @@ backspace=10mm,
   \definelayer
   [bulle]
   [x=0mm,y=0mm,width=\textwidth,height=\textheight]
- 
+
 
 \setupbackgrounds[page][background=texte]
 
 
 
  \setuptextrules[color=red,rulecolor=blue]
- 
+
   \setlayerframed[bulle][hoffset=5cm, voffset=9.5cm,frame=off]
  {\rotate[rotation=20]{
  \starttikzpicture
@@ -181,7 +182,7 @@ backspace=10mm,
 \setupbackgrounds[page][background={cadre,pensee,bulle}]
 %\setupbackgrounds[paper][state=repeat,background={bulle}]
 
-  
+
  \setlayerframed
    [cadre]
    [hoffset=0cm, voffset=0cm,height=14.9cm,width=1.5cm,frame=off,
@@ -190,12 +191,12 @@ backspace=10mm,
      \setlayerframed
   [pensee]
   [hoffset=-1.75cm, voffset=13.5cm,frame=off,width=5cm]
-  {\white\rotate[rotation=90]{\definedfont[SansBold at 16pt]  A6} }  
+  {\white\rotate[rotation=90]{\definedfont[SansBold at 16pt]  A6} }
 
    %-----TITRE------
 \startcolor[bleuLille]
 \startalignment[left]
-\titre 
+\titre
 \placefigure
 	[left]
 	[fig:K]
@@ -225,17 +226,17 @@ backspace=10mm,
 
 \sans{12pt}{de }\sansB{18pt}{problèmes }
 
- \sans{12pt}{ comme la}  \sans{20pt}{pauvreté}, 
+ \sans{12pt}{ comme la}  \sans{20pt}{pauvreté},
 
- \sans{12pt}{la} \sans{20pt}{surpopulation}, 
+ \sans{12pt}{la} \sans{20pt}{surpopulation},
 
- \sans{12pt}{la} \sans{20pt}{mécanisation}, 
+ \sans{12pt}{la} \sans{20pt}{mécanisation},
 
  \sans{12pt}{l'}\sans{20pt}{industrialisation}
 
- \sans{12pt}{et ce sentiment d'une} \sans{16pt}{détérioration} 
+ \sans{12pt}{et ce sentiment d'une} \sans{16pt}{détérioration}
 
-\sans{20pt}{intérieure et extérieure}, \crlf 
+\sans{20pt}{intérieure et extérieure}, \crlf
 
 \sans{48pt}{que faire ?}
 \stopalignment
@@ -269,9 +270,9 @@ Il est très facile de se noyer dans l'\serifB{16pt}{activisme} ou les \serifB{1
 \startalignment[middle]
 \serifI{12pt}{Jamais le cerveau }
 
-\serifI{12pt}{ne goûte un moment de} 
+\serifI{12pt}{ne goûte un moment de}
 
-\serifI{20pt}{repos}, 
+\serifI{20pt}{repos},
 
 \serifI{12pt}{jamais il ne peut dire}
 
@@ -279,17 +280,17 @@ Il est très facile de se noyer dans l'\serifB{16pt}{activisme} ou les \serifB{1
  \stopalignment
 \crlf%\crlf
  \sans{12pt}{L'esprit n'est qu'une suite de réactions}
- 
- \sans{12pt}{et la} \sans{20pt}{révolution}  
- 
- \sans{12pt}{établie sur les réactions, } 
- 
- \sans{12pt}{sur les idées,}  \sans{12pt}{n'est pas une}  \sans{20pt}{révolution} 
- 
+
+ \sans{12pt}{et la} \sans{20pt}{révolution}
+
+ \sans{12pt}{établie sur les réactions, }
+
+ \sans{12pt}{sur les idées,}  \sans{12pt}{n'est pas une}  \sans{20pt}{révolution}
+
   \sans{12pt}{mais tout au plus}  \sans{16pt}{une continuité modifiée}
 \crlf\crlf
 
-\serif{16pt}{Peut-il y avoir une} \serifB{16pt}{action} \serif{16pt}{sans connexion avec le} \serifB{16pt}{passé}\serif{16pt}{, qui ne soit pas plombée par le fardeau de l'}\serifB{16pt}{expérience}\serif{16pt}{, par le }\serifB{16pt}{savoir} \serif{16pt}{ d'hier ?} 
+\serif{16pt}{Peut-il y avoir une} \serifB{16pt}{action} \serif{16pt}{sans connexion avec le} \serifB{16pt}{passé}\serif{16pt}{, qui ne soit pas plombée par le fardeau de l'}\serifB{16pt}{expérience}\serif{16pt}{, par le }\serifB{16pt}{savoir} \serif{16pt}{ d'hier ?}
 \crlf\crlf\crlf\crlf
 \startalignment[middle]
 \sans{16pt}{Nos actions ne sont que des}
@@ -302,7 +303,7 @@ Il est très facile de se noyer dans l'\serifB{16pt}{activisme} ou les \serifB{1
  \mono{20pt}{de son conditionnement~?}
  \crlf\crlf
  \startalignment[middle]
-\monoI{12pt}{La }\monoBI{20pt}{volonté}\crlf \monoI{12pt}{est résistance }%\crlf 
+\monoI{12pt}{La }\monoBI{20pt}{volonté}\crlf \monoI{12pt}{est résistance }%\crlf
 \monoI{12pt}{et l'}\monoBI{16pt}{action}\crlf
 \monoI{12pt}{ qui en découle }%\crlf
 \monoI{12pt}{engendre }\crlf
