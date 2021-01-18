@@ -1,0 +1,37 @@
+\documentclass[a4]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{abc}
+\usepackage[a4paper]{geometry}
+\geometry{top=2cm, bottom=3cm, left=3cm, right=3cm}
+
+\newcommand{\titre}[1]
+{\texttt{#1}}
+
+\title{\texttt{Airs Traditionnels}}
+\date{}
+% -----
+
+\begin{document}
+\maketitle
+\vspace{4cm}
+\tableofcontents
+\newpage
+\addcontentsline{toc}{subsection}{Alaude (J'entends)}
+\begin{abc}[name=alaude]
+X:1
+T:Alaude (J'entends l')
+O:Bretagne
+M:4/4
+L:1/4
+Q:1/4=132
+K:C
+|:"C"C E/2F/2 G G |"F"A F "C"G2 | "F"c B/2A/2 "C"G G |"F"F/2G/2A/2F/2 "C"G2 :|
+|:"C"G G/2G/2 G A |"C"G E C2 |"C"E E/2E/2 E E |"G"D D "C"C2 :|
+
+\end{abc}
+\vspace{5mm}
+\addcontentsline{toc}{subsection}{Gitane}
+\input{gitane.latex}
+\end{document}
